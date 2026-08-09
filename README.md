@@ -51,14 +51,15 @@ Replace `Template Repository` and `TemplateRepository` everywhere:
 ```bash
 NAME="My Project"      # human-readable title
 SLUG="MyProject"       # the GitHub repository name
-grep -rl 'Template Repository\|TemplateRepository' . --exclude-dir=.git \
-  | xargs sed -i '' -e "s/TemplateRepository/$SLUG/g" -e "s/Template Repository/$NAME/g"
+YEAR=$(date +%Y)
+grep -rl 'Template Repository\|TemplateRepository\|2026' . --exclude-dir=.git \
+  | xargs sed -i '' -e "s/TemplateRepository/$SLUG/g" -e "s/Template Repository/$NAME/g" \
+                    -e "s/SPDX-FileCopyrightText: 2026/SPDX-FileCopyrightText: $YEAR/g" \
+                    -e "s/Copyright (c) 2026/Copyright (c) $YEAR/g"
 ```
 
 Then:
 
-- Set the copyright year everywhere it appears — every SPDX header, `LICENSE.md` and
-  `LICENSES/MIT.txt`.
 - Add yourself to `CITATION.cff` and `CONTRIBUTORS.md`. The template ships one author because a
   template has one; a real project lists everyone who wrote it.
 - Write the project description under the H1, above `## Contributing`.
@@ -112,6 +113,11 @@ checker fails a `CodeQL` badge with no `codeql.yml`, and vice versa.
 
 ### 4. Register the external services
 
+> [!IMPORTANT]
+> **Ask Paul Schmiedmayer to register these.** The account that registers a service owns the record
+> it creates — the DOI, the coverage project, the REUSE entry. Registering from a personal account
+> ties the repository to whoever happened to set it up.
+
 - **REUSE** — <https://api.reuse.software/register>. Until this is done the badge reads
   `unregistered`, which looks like a failure. Confirm with
   `curl -s https://api.reuse.software/badge/github.com/SchmiedmayerLab/SLUG | grep unregistered`
@@ -152,7 +158,10 @@ The standards workflow fails a pull request when a required file disappears, `CI
 parsing or its `url` stops matching the repository, a badge label drifts, badges fall out of order,
 a badge points at another repository, or the DOI in the README and in `CITATION.cff` disagree.
 
-Fix the repository rather than the check.
+> [!TIP]
+> Fix the repository rather than the check. The standard is the same in every repository, so a
+> local exception is drift by another name — if a rule is wrong, change it in
+> `SchmiedmayerLab/.github` and it changes everywhere.
 
 ## Contributing
 

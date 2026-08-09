@@ -19,7 +19,7 @@ on:
 
 jobs:
   standards:
-    name: Check Repository Standards
+    name: Standards
     permissions:
       contents: read
       pull-requests: read

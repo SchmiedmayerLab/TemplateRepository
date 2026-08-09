@@ -6,9 +6,6 @@
 # SPDX-License-Identifier: MIT
 #
 
-# The only workflow every repository needs regardless of language or tooling. It runs REUSE
-# compliance, the Markdown link check, and the repository surface checks in one call.
-
 name: Repository Standards
 
 on:
@@ -23,6 +20,4 @@ jobs:
     permissions:
       contents: read
       pull-requests: read
-    # Temporary ref: the shared workflow lives on this branch until SchmiedmayerLab/.github#19 is
-    # merged and tagged, at which point this moves back to @v0.4.
-    uses: SchmiedmayerLab/.github/.github/workflows/repository-standards.yml@feature/repository-standards
+    uses: SchmiedmayerLab/.github/.github/workflows/repository-standards.yml@v0.5

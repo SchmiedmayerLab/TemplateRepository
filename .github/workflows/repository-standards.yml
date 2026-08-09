@@ -1,0 +1,28 @@
+#
+# This source file is part of the Template Repository open-source project
+#
+# SPDX-FileCopyrightText: 2026 Schmiedmayer Lab and the project authors (see CONTRIBUTORS.md)
+#
+# SPDX-License-Identifier: MIT
+#
+
+# The only workflow every repository needs regardless of language or tooling. It runs REUSE
+# compliance, the Markdown link check, and the repository surface checks in one call.
+
+name: Repository Standards
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  standards:
+    name: Check Repository Standards
+    permissions:
+      contents: read
+      pull-requests: read
+    # Temporary ref: the shared workflow lives on this branch until SchmiedmayerLab/.github#19 is
+    # merged and tagged, at which point this moves back to @v0.4.
+    uses: SchmiedmayerLab/.github/.github/workflows/repository-standards.yml@feature/repository-standards

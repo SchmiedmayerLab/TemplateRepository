@@ -57,7 +57,8 @@ grep -rl 'Template Repository\|TemplateRepository' . --exclude-dir=.git \
 
 Then:
 
-- Set the copyright year in `README.md`, `CITATION.cff`, `CONTRIBUTORS.md` and `REUSE.toml`.
+- Set the copyright year everywhere it appears — every SPDX header, `LICENSE.md` and
+  `LICENSES/MIT.txt`.
 - Add yourself to `CITATION.cff` and `CONTRIBUTORS.md`. The template ships one author because a
   template has one; a real project lists everyone who wrote it.
 - Write the project description under the H1, above `## Contributing`.

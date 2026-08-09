@@ -86,7 +86,7 @@ actionlint          # brew install actionlint
 **Every file gets an SPDX header.** Copy the style already in `README.md`, adjusted to the
 language's comment syntax:
 
-```
+```text
 SPDX-FileCopyrightText: <year> Schmiedmayer Lab and the project authors (see CONTRIBUTORS.md)
 SPDX-License-Identifier: MIT
 ```

@@ -158,10 +158,12 @@ The standards workflow fails a pull request when a required file disappears, `CI
 parsing or its `url` stops matching the repository, a badge label drifts, badges fall out of order,
 a badge points at another repository, or the DOI in the README and in `CITATION.cff` disagree.
 
-> [!TIP]
-> Fix the repository rather than the check. The standard is the same in every repository, so a
-> local exception is drift by another name — if a rule is wrong, change it in
-> `SchmiedmayerLab/.github` and it changes everywhere.
+> [!IMPORTANT]
+> **Everything below this line is fixed text and is identical in every repository** — the
+> Contributing, License, Citation and Our Research sections, and the footer images. Replace
+> `Template Repository` with the project name and leave the rest exactly as it is. The standards
+> workflow checks these sections, so an edit here fails the build; if the wording needs to change,
+> change it in `SchmiedmayerLab/.github` and it changes everywhere at once.
 
 ## Contributing
 
